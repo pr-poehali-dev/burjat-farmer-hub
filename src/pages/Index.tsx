@@ -20,6 +20,8 @@ const MARKET_IMG =
   'https://cdn.poehali.dev/projects/b1429699-24cc-47c0-ac2c-c3f29f1d2be7/files/be09957f-be04-4f57-9255-5d7014bcd8b9.jpg';
 
 const YANDEX_MAP = 'https://yandex.ru/maps/org/kaskad/172351542238/';
+const TWOGIS_MAP =
+  'https://2gis.ru/ulanude/inside/5207922724333382/firm/70000001096228188?m=107.610098%2C51.814256%2F18';
 
 // TODO: замените на реальные контакты менеджера
 const TELEGRAM_MANAGER = 'https://t.me/kaskad_market';
@@ -453,10 +455,14 @@ export default function Index() {
             <div className="rounded-xl overflow-hidden border border-border mb-6 relative">
               <img src={MARKET_IMG} alt="Рынок Каскад внутри" className="w-full h-52 object-cover" />
               <div className="buryat-border absolute bottom-0 left-0 right-0 h-1" />
+              <div className="absolute top-3 right-3 flex items-center gap-1 bg-card/90 backdrop-blur px-3 py-1 rounded-full text-sm font-semibold">
+                <Icon name="Star" size={14} className="text-gold fill-gold" /> 4.7
+                <span className="text-muted-foreground font-normal">· 104 оценки</span>
+              </div>
             </div>
             <div className="space-y-5">
               {[
-                { icon: 'MapPin', t: 'Адрес', d: 'г. Улан-Удэ, ул. Трубачеева, 156 (2 этаж)' },
+                { icon: 'MapPin', t: 'Адрес', d: 'г. Улан-Удэ, ул. Трубачеева, 156, 1 этаж (Октябрьский район)' },
                 { icon: 'Clock', t: 'Часы работы', d: 'Ежедневно 10:00 — 20:00' },
                 { icon: 'Beef', t: 'На рынке', d: 'Свежее мясо, сортовой разруб, молочка, мёд' },
               ].map((c, i) => (
@@ -472,7 +478,10 @@ export default function Index() {
               ))}
               <div className="flex flex-wrap gap-3 pt-2">
                 <Button variant="outline" onClick={() => window.open(YANDEX_MAP, '_blank')}>
-                  <Icon name="Map" size={18} className="mr-2" /> На Яндекс.Картах
+                  <Icon name="Map" size={18} className="mr-2" /> Яндекс.Карты
+                </Button>
+                <Button variant="outline" onClick={() => window.open(TWOGIS_MAP, '_blank')}>
+                  <Icon name="Map" size={18} className="mr-2" /> 2ГИС
                 </Button>
                 <Button variant="outline" onClick={() => window.open(TELEGRAM_MANAGER, '_blank')}>
                   <Icon name="Send" size={18} className="mr-2" /> Telegram

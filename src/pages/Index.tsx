@@ -24,8 +24,10 @@ const TWOGIS_MAP =
   'https://2gis.ru/ulanude/inside/5207922724333382/firm/70000001096228188?m=107.610098%2C51.814256%2F18';
 
 // TODO: замените на реальные контакты менеджера
-const TELEGRAM_MANAGER = 'https://t.me/kaskad_market';
+const MAX_MANAGER = 'https://max.ru/u/kaskad_market';
 const WHATSAPP_MANAGER = '79000000000';
+
+const CDN = 'https://cdn.poehali.dev/projects/b1429699-24cc-47c0-ac2c-c3f29f1d2be7/files';
 
 type Product = {
   id: number;
@@ -35,6 +37,7 @@ type Product = {
   unit: string;
   category: string;
   emoji: string;
+  photo: string;
 };
 
 const CATEGORIES = [
@@ -47,18 +50,18 @@ const CATEGORIES = [
 ];
 
 const PRODUCTS: Product[] = [
-  { id: 1, name: 'Баранина фермерская', seller: 'Хозяйство Дондоковых', price: 780, unit: 'кг', category: 'meat', emoji: '🥩' },
-  { id: 2, name: 'Говядина степная', seller: 'Ранчо «Тугнуй»', price: 690, unit: 'кг', category: 'meat', emoji: '🐄' },
-  { id: 3, name: 'Буузы домашние', seller: 'Кухня Сэсэг', price: 450, unit: '10 шт', category: 'meat', emoji: '🥟' },
-  { id: 4, name: 'Молоко цельное', seller: 'Ферма Бадмаевых', price: 120, unit: 'литр', category: 'dairy', emoji: '🥛' },
-  { id: 5, name: 'Сметана деревенская', seller: 'Ферма Бадмаевых', price: 260, unit: '0.5 кг', category: 'dairy', emoji: '🥣' },
-  { id: 6, name: 'Творог фермерский', seller: 'Подворье Очировых', price: 340, unit: 'кг', category: 'dairy', emoji: '🧀' },
-  { id: 7, name: 'Мёд таёжный', seller: 'Пасека Гомбоева', price: 950, unit: 'кг', category: 'honey', emoji: '🍯' },
-  { id: 8, name: 'Мёд с прополисом', seller: 'Пасека Гомбоева', price: 1100, unit: 'кг', category: 'honey', emoji: '🐝' },
-  { id: 9, name: 'Хлеб на закваске', seller: 'Пекарня «Гэсэр»', price: 180, unit: 'шт', category: 'bakery', emoji: '🍞' },
-  { id: 10, name: 'Боовы к чаю', seller: 'Пекарня «Гэсэр»', price: 220, unit: '0.5 кг', category: 'bakery', emoji: '🥠' },
-  { id: 11, name: 'Изделия из войлока', seller: 'Мастерская Аюны', price: 1500, unit: 'шт', category: 'handmade', emoji: '🧶' },
-  { id: 12, name: 'Оберег «Хадак»', seller: 'Мастерская Аюны', price: 800, unit: 'шт', category: 'handmade', emoji: '🎗️' },
+  { id: 1, name: 'Баранина фермерская', seller: 'Хозяйство Дондоковых', price: 780, unit: 'кг', category: 'meat', emoji: '🥩', photo: `${CDN}/c6e0a47f-980c-4453-9920-015b471d59c3.jpg` },
+  { id: 2, name: 'Говядина степная', seller: 'Ранчо «Тугнуй»', price: 690, unit: 'кг', category: 'meat', emoji: '🐄', photo: `${CDN}/7cd3da00-c114-450a-a52e-aadae6550aa7.jpg` },
+  { id: 3, name: 'Буузы домашние', seller: 'Кухня Сэсэг', price: 450, unit: '10 шт', category: 'meat', emoji: '🥟', photo: `${CDN}/ca4b3eb6-b30b-4e5a-a8aa-032d4a4a1d3a.jpg` },
+  { id: 4, name: 'Молоко цельное', seller: 'Ферма Бадмаевых', price: 120, unit: 'литр', category: 'dairy', emoji: '🥛', photo: `${CDN}/639765f2-85a0-4505-b323-bda803060527.jpg` },
+  { id: 5, name: 'Сметана деревенская', seller: 'Ферма Бадмаевых', price: 260, unit: '0.5 кг', category: 'dairy', emoji: '🥣', photo: `${CDN}/71eb0639-70a0-4b9a-a26a-1e3a944f2405.jpg` },
+  { id: 6, name: 'Творог фермерский', seller: 'Подворье Очировых', price: 340, unit: 'кг', category: 'dairy', emoji: '🧀', photo: `${CDN}/a439811e-0ecf-4e9c-be8d-7326359cb089.jpg` },
+  { id: 7, name: 'Мёд таёжный', seller: 'Пасека Гомбоева', price: 950, unit: 'кг', category: 'honey', emoji: '🍯', photo: `${CDN}/341b9293-1347-4696-ae4b-6bd41d48114c.jpg` },
+  { id: 8, name: 'Мёд с прополисом', seller: 'Пасека Гомбоева', price: 1100, unit: 'кг', category: 'honey', emoji: '🐝', photo: `${CDN}/2c293617-3774-40bf-9c81-a606ae0f2aee.jpg` },
+  { id: 9, name: 'Хлеб на закваске', seller: 'Пекарня «Гэсэр»', price: 180, unit: 'шт', category: 'bakery', emoji: '🍞', photo: `${CDN}/0ec9f9c7-4de1-4a3e-9702-733217fc76d1.jpg` },
+  { id: 10, name: 'Боовы к чаю', seller: 'Пекарня «Гэсэр»', price: 220, unit: '0.5 кг', category: 'bakery', emoji: '🥠', photo: `${CDN}/5885f57e-ff8a-47de-8072-d6f1a6b440f5.jpg` },
+  { id: 11, name: 'Изделия из войлока', seller: 'Мастерская Аюны', price: 1500, unit: 'шт', category: 'handmade', emoji: '🧶', photo: `${CDN}/29766999-4f48-409b-ae48-a134508298ae.jpg` },
+  { id: 12, name: 'Оберег «Хадак»', seller: 'Мастерская Аюны', price: 800, unit: 'шт', category: 'handmade', emoji: '🎗️', photo: `${CDN}/ae5d1286-8966-4fcf-85fd-b5f0e0da0930.jpg` },
 ];
 
 const NAV = [
@@ -133,9 +136,9 @@ export default function Index() {
     return true;
   };
 
-  const sendTelegram = () => {
+  const sendMax = () => {
     if (!validate()) return;
-    window.open(`${TELEGRAM_MANAGER}?text=${buildOrderText()}`, '_blank');
+    window.open(`${MAX_MANAGER}?text=${buildOrderText()}`, '_blank');
   };
   const sendWhatsapp = () => {
     if (!validate()) return;
@@ -183,7 +186,7 @@ export default function Index() {
               setName={setName}
               setPhone={setPhone}
               setComment={setComment}
-              sendTelegram={sendTelegram}
+              sendMax={sendMax}
               sendWhatsapp={sendWhatsapp}
             />
             <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
@@ -300,8 +303,12 @@ export default function Index() {
                 key={p.id}
                 className="group bg-card rounded-xl border border-border overflow-hidden hover:shadow-xl transition-shadow animate-scale-in"
               >
-                <div className="relative h-40 bg-muted grid place-items-center text-6xl">
-                  <span className="group-hover:scale-110 transition-transform">{p.emoji}</span>
+                <div className="relative h-48 bg-muted overflow-hidden">
+                  <img
+                    src={p.photo}
+                    alt={p.name}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
                   <div className="buryat-border absolute bottom-0 left-0 right-0 h-1" />
                 </div>
                 <div className="p-5">
@@ -347,7 +354,7 @@ export default function Index() {
           <div className="grid md:grid-cols-4 gap-6 mb-12">
             {[
               { n: '01', t: 'Выберите товары', d: 'Соберите заказ из каталога — от разных фермеров сразу.' },
-              { n: '02', t: 'Отправьте заявку', d: 'Заявка уходит менеджеру в Telegram или WhatsApp.' },
+              { n: '02', t: 'Отправьте заявку', d: 'Заявка уходит менеджеру в МАХ или WhatsApp.' },
               { n: '03', t: 'Подтверждение', d: 'Менеджер свяжется, уточнит детали и сумму.' },
               { n: '04', t: 'Доставка / самовывоз', d: 'Привезём по городу или заберёте на рынке.' },
             ].map((s) => (
@@ -483,8 +490,8 @@ export default function Index() {
                 <Button variant="outline" onClick={() => window.open(TWOGIS_MAP, '_blank')}>
                   <Icon name="Map" size={18} className="mr-2" /> 2ГИС
                 </Button>
-                <Button variant="outline" onClick={() => window.open(TELEGRAM_MANAGER, '_blank')}>
-                  <Icon name="Send" size={18} className="mr-2" /> Telegram
+                <Button variant="outline" onClick={() => window.open(MAX_MANAGER, '_blank')}>
+                  <Icon name="Send" size={18} className="mr-2" /> МАХ
                 </Button>
                 <Button variant="outline" onClick={() => window.open(`https://wa.me/${WHATSAPP_MANAGER}`, '_blank')}>
                   <Icon name="MessageCircle" size={18} className="mr-2" /> WhatsApp
@@ -499,8 +506,8 @@ export default function Index() {
               <Input placeholder="Ваше имя" value={name} onChange={(e) => setName(e.target.value)} />
               <Input placeholder="Телефон" value={phone} onChange={(e) => setPhone(e.target.value)} />
               <Textarea placeholder="Сообщение" value={comment} onChange={(e) => setComment(e.target.value)} rows={4} />
-              <Button className="w-full" onClick={sendTelegram}>
-                <Icon name="Send" size={18} className="mr-2" /> Отправить в Telegram
+              <Button className="w-full" onClick={sendMax}>
+                <Icon name="Send" size={18} className="mr-2" /> Отправить в МАХ
               </Button>
             </div>
           </div>
@@ -556,7 +563,7 @@ type CartProps = {
   setName: (v: string) => void;
   setPhone: (v: string) => void;
   setComment: (v: string) => void;
-  sendTelegram: () => void;
+  sendMax: () => void;
   sendWhatsapp: () => void;
 };
 
@@ -591,7 +598,7 @@ function CartSheet(p: CartProps) {
           ) : (
             p.cartItems.map((i) => (
               <div key={i.id} className="flex items-center gap-3 bg-muted/50 rounded-lg p-3">
-                <span className="text-2xl">{i.emoji}</span>
+                <img src={i.photo} alt={i.name} className="w-12 h-12 rounded-md object-cover shrink-0" />
                 <div className="flex-1 min-w-0">
                   <div className="font-medium text-sm truncate">{i.name}</div>
                   <div className="text-xs text-muted-foreground">{i.price}₽ / {i.unit}</div>
@@ -624,8 +631,8 @@ function CartSheet(p: CartProps) {
               onChange={(e) => p.setComment(e.target.value)}
               rows={2}
             />
-            <Button className="w-full" onClick={p.sendTelegram}>
-              <Icon name="Send" size={18} className="mr-2" /> Отправить в Telegram
+            <Button className="w-full" onClick={p.sendMax}>
+              <Icon name="Send" size={18} className="mr-2" /> Отправить в МАХ
             </Button>
             <Button
               variant="outline"

@@ -16,6 +16,10 @@ const HERO_IMG =
   'https://cdn.poehali.dev/projects/b1429699-24cc-47c0-ac2c-c3f29f1d2be7/files/129ffa05-f2df-485c-be8d-3b04919a0210.jpg';
 const PATTERN_IMG =
   'https://cdn.poehali.dev/projects/b1429699-24cc-47c0-ac2c-c3f29f1d2be7/files/c69698cf-3cb9-4dc0-9899-99d69d187fd5.jpg';
+const MARKET_IMG =
+  'https://cdn.poehali.dev/projects/b1429699-24cc-47c0-ac2c-c3f29f1d2be7/files/be09957f-be04-4f57-9255-5d7014bcd8b9.jpg';
+
+const YANDEX_MAP = 'https://yandex.ru/maps/org/kaskad/172351542238/';
 
 // TODO: замените на реальные контакты менеджера
 const TELEGRAM_MANAGER = 'https://t.me/kaskad_market';
@@ -446,11 +450,15 @@ export default function Index() {
         <div className="container grid md:grid-cols-2 gap-12">
           <div>
             <SectionTitle sub="Контакты" title="Свяжитесь с нами" align="left" />
+            <div className="rounded-xl overflow-hidden border border-border mb-6 relative">
+              <img src={MARKET_IMG} alt="Рынок Каскад внутри" className="w-full h-52 object-cover" />
+              <div className="buryat-border absolute bottom-0 left-0 right-0 h-1" />
+            </div>
             <div className="space-y-5">
               {[
-                { icon: 'MapPin', t: 'Адрес', d: 'г. Улан-Удэ, ул. Фермерская, 1' },
-                { icon: 'Phone', t: 'Телефон', d: '+7 (900) 000-00-00' },
-                { icon: 'Clock', t: 'Часы работы', d: 'Ежедневно 8:00 — 20:00' },
+                { icon: 'MapPin', t: 'Адрес', d: 'г. Улан-Удэ, ул. Трубачеева, 156 (2 этаж)' },
+                { icon: 'Clock', t: 'Часы работы', d: 'Ежедневно 10:00 — 20:00' },
+                { icon: 'Beef', t: 'На рынке', d: 'Свежее мясо, сортовой разруб, молочка, мёд' },
               ].map((c, i) => (
                 <div key={i} className="flex gap-4 items-start">
                   <div className="grid place-items-center w-11 h-11 rounded-lg bg-muted text-primary shrink-0">
@@ -462,7 +470,10 @@ export default function Index() {
                   </div>
                 </div>
               ))}
-              <div className="flex gap-3 pt-2">
+              <div className="flex flex-wrap gap-3 pt-2">
+                <Button variant="outline" onClick={() => window.open(YANDEX_MAP, '_blank')}>
+                  <Icon name="Map" size={18} className="mr-2" /> На Яндекс.Картах
+                </Button>
                 <Button variant="outline" onClick={() => window.open(TELEGRAM_MANAGER, '_blank')}>
                   <Icon name="Send" size={18} className="mr-2" /> Telegram
                 </Button>
